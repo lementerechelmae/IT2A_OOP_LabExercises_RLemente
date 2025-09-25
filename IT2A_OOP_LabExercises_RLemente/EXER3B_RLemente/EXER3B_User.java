@@ -1,48 +1,43 @@
-// Base Class
-class EXER3B_User {
-    protected String userId;
-    protected String name;
+public class EXER3B_User {
+    private String name;
+    private String username;
+    private String password;
 
-    public EXER3B_User(String userId, String name) {
-        this.userId = userId;
+    public EXER3B_User(String name, String username, String password) {
         this.name = name;
+        this.username = username;
+        this.password = password;
     }
 
     public void login() {
-        System.out.println(name + " logged in.");
-    }
-}
-
-// Officials subclass
-class EXER3B_Officials extends EXER3B_User {
-    public EXER3B_Officials(String userId, String name) {
-        super(userId, name);
+        System.out.println(name + " logged in successfully!");
     }
 
-    public void makeAnnouncement(String content) {
-        System.out.println(name + " made an announcement: " + content);
+    public void showHome() {
+        System.out.println("Welcome " + name + "! This is the default home page.");
     }
 
-    public void updateComplaint(String complaintId, String newStatus) {
-        System.out.println(name + " updated Complaint " + complaintId + " to status: " + newStatus);
-    }
-}
-
-// Residents subclass
-class EXER3B_Residents extends EXER3B_User {
-    public EXER3B_Residents(String userId, String name) {
-        super(userId, name);
+    public String getName() {
+        return name;
     }
 
-    public void register() {
-        System.out.println(name + " has registered in the system.");
+    public String getUsername() {
+        return username;
     }
 
-    public void reactToAnnouncement(String announcementId, String reaction) {
-        System.out.println(name + " reacted to Announcement " + announcementId + " with: " + reaction);
+    public String getPassword() {
+        return password;
     }
 
-    public void submitComplaint(String complaintId, String description) {
-        System.out.println(name + " submitted Complaint " + complaintId + ": " + description);
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 }
