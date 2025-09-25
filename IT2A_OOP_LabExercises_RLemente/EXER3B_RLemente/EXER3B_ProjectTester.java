@@ -1,29 +1,30 @@
 public class EXER3B_ProjectTester {
     public static void main(String[] args) {
+        EXER3B_Admin admin = new EXER3B_Admin("Kap. Reyes", "kapreyes", "12345");
+        EXER3B_Resident resident = new EXER3B_Resident("Juan Dela Cruz", "juanDC", "67890");
 
-        System.out.println("                         EXER3B_User");
-        System.out.println("                       /            \\");
-        System.out.println("             EXER3B_Officials       EXER3B_Residents");
-        System.out.println("               /        \\                /     |    \\");
-        System.out.println(" makeAnnouncement()  updateComplaint()  /      |    submitComplaint()");
-        System.out.println("                                    register() |");
-        System.out.println("                                     reactToAnnouncement()      ");
+        admin.login();
+        admin.showHome();
+
         System.out.println();
-        
 
+        resident.login();
+        resident.showHome();
 
-        // Create instances
-        EXER3B_Residents res1 = new EXER3B_Residents("R001", "Juan Dela Cruz");
-        EXER3B_Officials off1 = new EXER3B_Officials("O001", "Captain Reyes");
+        System.out.println();
+        resident.register();
 
-        // Demonstrations
-        res1.login();
-        res1.register();
-        res1.submitComplaint("C001", "Streetlight not working");
-        res1.reactToAnnouncement("A001", "Like");
+        System.out.println();
+        String complaint = resident.submitComplaint("Street light not working.");
 
-        off1.login();
-        off1.makeAnnouncement("Barangay Clean-up Drive this Saturday!");
-        off1.updateComplaint("C001", "In Progress");
+        System.out.println();
+        admin.updateComplaint(complaint, "In Progress");
+
+        System.out.println();
+        String announcement = "Community clean-up drive this Saturday!";
+        admin.makeAnnouncement(announcement);
+
+        System.out.println();
+        resident.reactToAnnouncement(announcement, "Will join!");
     }
 }
